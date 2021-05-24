@@ -2,7 +2,7 @@
 
 class UserController {
   index({ view }) {
-    return view.render("layouts.dashboard");
+    return view.render("layouts.register");
   }
 }
 

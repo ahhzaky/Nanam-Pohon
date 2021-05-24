@@ -33116,10 +33116,16 @@ footer {
 }
 
 .auth-page {
-  background-color: #3b41e3;
+  background-color: #7ECA9C;
   background-image: url("/asset/auth-background.svg");
   background-position: top right;
   background-repeat: no-repeat;
+}
+
+.auth-background {
+  background-image: url("/sign-up-background.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 @media (min-width: 640px) {
@@ -194281,4 +194287,3 @@ footer {
     --tw-backdrop-sepia: sepia(100%);
   }
 }
-
