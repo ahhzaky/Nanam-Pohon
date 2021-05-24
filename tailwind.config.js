@@ -9,6 +9,7 @@ module.exports = {
         "orange-button": "#FF872E",
         "green-button": "#1ABC9C",
         "purple-hover": "#4C52F8",
+        "green-hover": "#BBDFC8",
         "purple-hover-stroke": "#8286FF",
         "purple-progress": "#3B41E3",
         "green-progress": "#7ECA9C",

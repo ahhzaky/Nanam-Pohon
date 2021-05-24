@@ -2,7 +2,7 @@
 
 class UserController {
   index({ view }) {
-    return view.render("layouts.register");
+    return view.render("layouts.donasi-success");
   }
 }
 
