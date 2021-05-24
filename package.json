@@ -5,6 +5,7 @@
   "description": "The fullstack application boilerplate for Adonisjs",
   "main": "index.js",
   "scripts": {
+    "css": "cross-env NODE_ENV=development postcss ./resources/css/tailwind.css -o ./public/css/styles.css",
     "start": "node server.js",
     "test": "node ace test"
   },
@@ -27,7 +28,12 @@
     "@adonisjs/session": "^1.0.27",
     "@adonisjs/shield": "^1.0.8"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.3.0",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.1.2"
+  },
   "autoload": {
     "App": "./app"
   }
