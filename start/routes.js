@@ -16,4 +16,20 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use("Route");
 
-Route.get("/", "UserController.index");
+Route.get("/", "PageController.dashboard");
+
+Route.get("/login", "PageController.login");
+
+Route.get("/register", "PageController.register");
+
+//debug
+// berhasil daftar
+Route.get("/register-success", "PageController.registerSuccess");
+
+Route.get("/show-donasi", "PageController.showDonasi");
+
+Route.get("/my-profile", "PageController.myProfile");
+
+Route.get("/my-history", "PageController.myHistory");
+
+// Route.get("/", "PageController.dashboard");

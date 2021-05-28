@@ -1,0 +1,108 @@
+@layout('layout.master')
+
+
+@section('content')
+<div class="antialiased">
+  <div class="landing-page">
+    <section class="landing-hero pt-5">
+      <div class="header__bg__show_detail"></div>
+      <div class="container mx-auto relative">
+        <header class="flex items-center">
+          <div style="height: 54px" class="pr-5">
+            <img src="/logo.svg" alt="logo" class="h-full" />
+          </div>
+          <ul class="flex items-center">
+            <li class="">
+              <a
+                class="text-white hover:text-teal-500  text-lg px-4 py-3"
+                href="/"
+                ><u class="no-underline hover:underline">Home</u></a
+              >
+            </li>
+            <li>
+              <a
+                class="text-white hover:text-teal-500 text-lg px-4 py-3"
+                href="#item-list"
+                ><u class="no-underline hover:underline">Donasi</u></a
+              >
+            </li>
+            <li>
+              <a
+                class="text-white hover:text-teal-500 text-lg px-4 py-3"
+                href="/features.html"
+                ><u class="hover:underline">History</u></a
+              >
+            </li>
+          </ul>
+          <ul class="flex ml-auto items-center mt-2">
+            <li>
+              <a
+                href="/register"
+                class="inline-block bg-transparent border-white border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full mr-4"
+              >
+                Daftar
+              </a>
+            </li>
+            <li>
+              <a
+                href="/my-profile"
+                class="inline-block bg-transparent border-white border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full"
+              >
+                Akun Saya
+              </a>
+            </li>
+          </ul>
+        </header>
+      </div>
+    </section>
+
+    <section class="container mx-auto pt-8">
+      <div class="flex justify-between items-center mb-6">
+        <div class="w-3/4 mr-6 pt-5">
+          <h2 class="text-4xl text-gray-900 mb-2 font-medium">Donasi Saya</h2>
+          <ul class="flex mt-2">
+            <li class="mr-6">
+              <a
+                class="text-gray-500 hover:text-gray-800"
+                href="/dashboard/index.html"
+              >
+                History pembayaran
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr />
+      {{--  item  --}}
+      <div class="block mb-2">
+        <div class="w-full lg:max-w-full lg:flex mb-4">
+          <div
+            class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+            style="background-color: #bbb"
+          ></div>
+          <div
+            class="w-full border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-8 flex flex-col justify-between leading-normal"
+          >
+            <div>
+              <div class="text-gray-900 font-bold text-xl mb-1">
+                Hutan Lore Lindu
+              </div>
+              <p class="text-sm text-gray-600 flex items-center mb-2">
+                Akibat pembakaran ilegal
+              </p>
+              <p class="text-sm text-gray-600 flex items-center mb-2">
+                Rp. 200.000.000 &middot; 12 September 2020
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+
+
+
+  </div>
+</div>
+@endsection

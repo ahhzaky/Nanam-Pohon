@@ -59,6 +59,21 @@ body {
   transform-origin: top left;
 }
 
+.header__bg__show_detail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-image: url("/auth-background.svg");
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-color: #7ECA9C;
+  transform-origin: top left;
+}
+
 .cta-clip {
   position: relative;
   top: 200px;
@@ -74,6 +89,8 @@ body {
   transform: skewY(4deg);
   transform-origin: bottom right;
 }
+
+
 
 .call-to-action {
   background-image: url("/auth-background.svg");

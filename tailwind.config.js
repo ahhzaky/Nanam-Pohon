@@ -17,6 +17,8 @@ module.exports = {
       borderRadius: {
         20: "20px",
       },
+      backgroundColor: ["active"],
+      textDecoration: ["active"],
     },
   },
   fontFamily: {

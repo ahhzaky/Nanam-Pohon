@@ -1,9 +1,9 @@
 "use strict";
 
 class UserController {
-  index({ view }) {
-    return view.render("error-page");
-  }
+  // index({ view }) {
+  //   return view.render("layouts.dashboard");
+  // }
 }
 
 module.exports = UserController;
