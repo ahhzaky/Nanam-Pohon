@@ -5,12 +5,12 @@ class PageController {
   dashboard({ view }) {
     return view.render("app.dashboard");
   }
-  // login
+  // login akun
   login({ view }) {
     return view.render("app.login");
   }
 
-  //daftar
+  //daftar akun
   register({ view }) {
     return view.render("app.register");
   }
@@ -19,15 +19,15 @@ class PageController {
   registerSuccess({ view }) {
     return view.render("app.register-success");
   }
-
+  // lihat semua donasi
   showDonasi({ view }) {
     return view.render("app.show-donasi");
   }
-
+  // profil saya
   myProfile({ view }) {
     return view.render("app.my-profile");
   }
-
+  // history pembayaran
   myHistory({ view }) {
     return view.render("app.my-history");
   }
