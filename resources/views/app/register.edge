@@ -1,6 +1,8 @@
 @layout('layout.master')
 
 @section('content')
+<form action="/register" method="post">
+  {{ csrfField() }}
 <div class="antialiased">
   <div class="auth-page">
     <div class="h-screen flex justify-center items-center">
@@ -18,11 +20,14 @@
                 >Nama Lengkap</label
               >
               <input
+              id="name"
+              name="name"
                 type="text"
-                class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
+                class="auth-form focus:outline-none focus:bg-green-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
                 placeholder="Tulis nama lengkap anda"
-                value="Mario"
+                value="{{ old('name') }}"
               />
+              {{ elIf('<span style="color: white;">$self</span>', getErrorFor('name'), hasErrorFor('name')) }}
             </div>
           </div>
           <div class="mb-6">
@@ -31,11 +36,15 @@
                 >Komunitas lingkungan di ikuti</label
               >
               <input
+              id="role"
+              name="role"
                 type="text"
-                class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
+                class="auth-form focus:outline-none focus:bg-green-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
                 placeholder="Tulis komunitas lingkungan yang anda ikuti"
-                value="Sahabat Alam"
+                value="{{ old('role') }}"
+
               />
+              {{ elIf('<span style="color: white;">$self</span>', getErrorFor('role'), hasErrorFor('role')) }}
             </div>
           </div>
           <div class="mb-6">
@@ -44,11 +53,14 @@
                 >Alamat Email</label
               >
               <input
+                id="email"
+                name="email"
                 type="email"
-                class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
+                class="auth-form focus:outline-none focus:bg-green-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
                 placeholder="Tulis email anda"
-                value="mario@gmail.com"
+                value="{{ old('email') }}"
               />
+              {{ elIf('<span style="color: white;">$self</span>', getErrorFor('email'), hasErrorFor('email')) }}
             </div>
           </div>
           <div class="mb-6">
@@ -57,17 +69,19 @@
                 >Password</label
               >
               <input
+              id="password"
+              name="password"
                 type="password"
-                class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
+                class="auth-form focus:outline-none focus:bg-green-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
                 placeholder="Tulis paswword anda"
-                value="siahmadzakyyangbuat"
+                value="{{ old('password') }}"
               />
+              {{ elIf('<span style="color: white;">$self</span>', getErrorFor('password'), hasErrorFor('password')) }}
             </div>
           </div>
           <div class="mb-6">
             <div class="mb-4">
               <button
-                @click="$router.push({ path: '/upload' })"
                 class="block w-full bg-orange-button hover:bg-green-button text-white font-semibold px-6 py-4 text-lg rounded-full"
               >
                 Lanjutkan
@@ -87,6 +101,6 @@
     </div>
   </div>
 </div>
-
+</form>
 
 @endsection

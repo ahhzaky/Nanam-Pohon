@@ -11,9 +11,9 @@ class PageController {
   }
 
   //daftar akun
-  register({ view }) {
-    return view.render("app.register");
-  }
+  // register({ view }) {
+  //   return view.render("app.register");
+  // }
 
   //Berhasil daftar
   registerSuccess({ view }) {
@@ -30,6 +30,18 @@ class PageController {
   // history pembayaran
   myHistory({ view }) {
     return view.render("app.my-history");
+  }
+
+  uploadImage({ view }) {
+    return view.render("app.upload-register");
+  }
+
+  successRegister({ view }) {
+    return view.render("app.success-register");
+  }
+
+  createDonasi({ view }) {
+    return view.render("app.create-donasi");
   }
 }
 
