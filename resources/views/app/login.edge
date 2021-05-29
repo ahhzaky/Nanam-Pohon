@@ -2,6 +2,7 @@
 
 @section('content')
 <form action="/login" method="post">
+  {{ csrfField() }}
 <div class="antialiased">
   <div class="auth-page">
     <div class="h-screen flex justify-center items-center">
@@ -21,10 +22,13 @@
               >
               <input
                 id="email"
+                name="email"
                 type="email"
                 class="auth-form focus:outline-none focus:bg-green-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
                 placeholder="Tulis email anda"
               />
+              {{ elIf('<span style="color: white;">$self</span>', getErrorFor('email'), hasErrorFor('email')) }}
+
             </div>
           </div>
           <div class="mb-6">
@@ -34,10 +38,12 @@
               >
               <input
                  id="password"
+                 name="password"
                 type="password"
                 class="auth-form focus:outline-none focus:bg-green-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
                 placeholder="Write your password here"
               />
+              {{ elIf('<span style="color: white;">$self</span>', getErrorFor('password'), hasErrorFor('password')) }}
             </div>
           </div>
           <div class="mb-6">

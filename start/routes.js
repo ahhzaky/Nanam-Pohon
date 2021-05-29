@@ -20,7 +20,7 @@ const Route = use("Route");
 
 Route.get("/", "PageController.dashboard");
 
-Route.get("/login", "PageController.login");
+//Route.get("/login", "PageController.login");
 
 //Route.get("/register", "PageController.register");
 
@@ -48,3 +48,9 @@ Route.get("/create-donasi", "PageController.createDonasi");
 //Daftar Akun
 Route.get("/register", "UserController.registerView");
 Route.post("/register", "UserController.store");
+
+//Login
+
+Route.get("/login", "UserController.loginView");
+Route.post("/login", "UserController.login");
+Route.get("/register-success", "UserController.registerSuccess");

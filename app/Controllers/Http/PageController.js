@@ -5,12 +5,12 @@ class PageController {
   dashboard({ view }) {
     return view.render("app.dashboard");
   }
-  // login akun
+  // login akun ->usercontroller
   login({ view }) {
     return view.render("app.login");
   }
 
-  //daftar akun
+  //daftar akun -> UserController cek
   // register({ view }) {
   //   return view.render("app.register");
   // }
@@ -36,9 +36,9 @@ class PageController {
     return view.render("app.upload-register");
   }
 
-  successRegister({ view }) {
-    return view.render("app.success-register");
-  }
+  // successRegister({ view }) {
+  //   return view.render("app.success-register");
+  // }
 
   createDonasi({ view }) {
     return view.render("app.create-donasi");

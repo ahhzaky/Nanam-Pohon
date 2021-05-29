@@ -45,6 +45,38 @@ class UserController {
 
     return response.redirect("/", true);
   }
+
+  // login view
+  loginView({ view }) {
+    return view.render("app.login");
+  }
+
+  //succes register
+  registerSuccess({ view }) {
+    return view.render("app.register-success");
+  }
+
+  // login akun
+  async login({ request, response, auth, session }) {
+    const data = request.post();
+    const rules = {
+      email: "required",
+      password: "required",
+    };
+    const validation = await validateAll(data, rules);
+    if (validation.fails()) {
+      // true susces jika error maka ia akan mereturn error
+      session // bawaan adonis memakai session untuk cek validasi data input
+        .withErrors(validation.messages())
+        .flashAll();
+      return response.redirect("back"); // untuk ke halamannya
+    }
+
+    const { email, password } = request.only(["email", "password"]);
+    const token = await auth.attempt(email, password);
+
+    return response.redirect("/register-success", true);
+  }
 }
 
 module.exports = UserController;
