@@ -15,6 +15,8 @@ class UserController {
   //     data: user,
   //   });
   // }
+
+  // register user
   registerView({ view }) {
     return view.render("app.register");
   }
@@ -22,7 +24,7 @@ class UserController {
     const rules = {
       name: "required|string",
       role: "required|string",
-      email: "required",
+      email: "required|email|unique:users,email",
       password: "required",
     };
     const data = request.post();
@@ -46,14 +48,14 @@ class UserController {
     return response.redirect("/", true);
   }
 
-  // login view
-  loginView({ view }) {
-    return view.render("app.login");
-  }
-
   //succes register
   registerSuccess({ view }) {
     return view.render("app.register-success");
+  }
+
+  // login view
+  loginView({ view }) {
+    return view.render("app.login");
   }
 
   // login akun

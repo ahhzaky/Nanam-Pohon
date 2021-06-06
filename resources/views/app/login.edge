@@ -26,6 +26,7 @@
                 type="email"
                 class="auth-form focus:outline-none focus:bg-green-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
                 placeholder="Tulis email anda"
+                value="{{old('email')}}"
               />
               {{ elIf('<span style="color: white;">$self</span>', getErrorFor('email'), hasErrorFor('email')) }}
 
