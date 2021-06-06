@@ -18,7 +18,7 @@ const UserController = require("../app/Controllers/Http/UserController");
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use("Route");
 
-Route.get("/", "PageController.dashboard");
+//Route.get("/", "PageController.dashboard");
 
 //Route.get("/login", "PageController.login");
 
@@ -30,7 +30,7 @@ Route.get("/register-success", "PageController.registerSuccess");
 
 Route.get("/show-donasi", "PageController.showDonasi");
 
-Route.get("/my-profile", "PageController.myProfile");
+//Route.get("/my-profile", "PageController.myProfile");
 
 Route.get("/my-history", "PageController.myHistory");
 
@@ -47,10 +47,20 @@ Route.get("/create-donasi", "PageController.createDonasi");
 
 //Daftar Akun
 Route.get("/register", "UserController.registerView");
-Route.post("/register", "UserController.store");
+Route.post("/register", "UserController.doRegister");
 
 //Login
 
 Route.get("/login", "UserController.loginView");
-Route.post("/login", "UserController.login");
+Route.post("/login", "UserController.doLogin");
 Route.get("/register-success", "UserController.registerSuccess");
+
+//dashoar
+Route.get("/", "UserController.dashboard");
+
+//my profile
+Route.get("/my-profile", "UserController.profileView");
+Route.post("/update/user/:id", "UserController.updateProfile");
+
+//logout
+Route.put("/user/logout", "UserController.destroy");

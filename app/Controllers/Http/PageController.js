@@ -2,9 +2,9 @@
 
 class PageController {
   //home -> dashboard
-  dashboard({ view }) {
-    return view.render("app.dashboard");
-  }
+  // dashboard({ view }) {
+  //   return view.render("app.dashboard");
+  // }
   // login akun ->usercontroller
   login({ view }) {
     return view.render("app.login");
@@ -24,9 +24,9 @@ class PageController {
     return view.render("app.show-donasi");
   }
   // profil saya
-  myProfile({ view }) {
-    return view.render("app.my-profile");
-  }
+  // myProfile({ view }) {
+  //   return view.render("app.my-profile");
+  // }
   // history pembayaran
   myHistory({ view }) {
     return view.render("app.my-history");

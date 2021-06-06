@@ -1,6 +1,8 @@
 @layout('layout.master')
 
 @section('content')
+<form method="POST" action="/update/user/{{user._id}}">
+  {{ csrfField()}}
 <div class="antialiased">
   <div class="auth-page">
     <div class="h-screen flex justify-center items-center">
@@ -12,16 +14,25 @@
           <h2 class="font-normal mb-6 text-3xl text-white">
            My profile
           </h2>
+          @if(flashMessage('notification'))
+            <div class="alert alert-success">
+              {{ flashMessage('notification') }}
+              </div>
+          @endif
           <div class="mb-6">
             <div class="mb-4">
               <label class="font-normal text-lg text-white block mb-3"
                 >Nama Lengkap</label
               >
               <input
+              id="name"
+              name="name"
                 type="text"
                 class="auth-form focus:outline-none focus:bg-green-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
+                value="{{user.name}}"
                 placeholder="Tulis nama lengkap anda"
               />
+              {{ elIf('<span style="color: white;">$self</span>', getErrorFor('name'), hasErrorFor('name')) }}
             </div>
           </div>
           <div class="mb-6">
@@ -30,10 +41,15 @@
                 >Komunitas lingkungan di ikuti</label
               >
               <input
+                id="role"
+                name="role"
                 type="text"
                 class="auth-form focus:outline-none focus:bg-green-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
+                value="{{user.role}}"
                 placeholder="Tulis komunitas lingkungan yang anda ikuti"
+
               />
+              {{ elIf('<span style="color: white;">$self</span>', getErrorFor('role'), hasErrorFor('role')) }}
             </div>
           </div>
           <div class="mb-6">
@@ -42,19 +58,25 @@
                 >Alamat Email</label
               >
               <input
+              id="email"
+              name="email"
                 type="email"
                 class="auth-form focus:outline-none focus:bg-green-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
+                value="{{user.email}}"
                 placeholder="Tulis email anda"
               />
+              {{ elIf('<span style="color: white;">$self</span>', getErrorFor('email'), hasErrorFor('email')) }}
+
             </div>
           </div>
           <div class="mb-6">
             <div class="mb-4">
               <label class="font-normal text-lg text-white block mb-3"
-                >Password</label
+                >Image</label
               >
               <input
-                type="password"
+                type="file"
+
                 class="auth-form focus:outline-none focus:bg-green-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
                 placeholder="Tulis paswword anda"
               />
@@ -72,11 +94,9 @@
 
           <div class="mb-6">
             <div class="mb-4">
-              <a href="/"><button
-                class="block w-full bg-orange-button hover:bg-green-button text-white font-semibold px-6 py-4 text-lg rounded-full"
-              >
+              <a href="/" class="block w-full bg-orange-button hover:bg-green-button text-white font-semibold px-6 py-4 text-lg rounded-full mr-auto grid justify-items-center">
                 Kembali
-              </button></a>
+              </a>
             </div>
           </div>
         </div>
@@ -84,6 +104,6 @@
     </div>
   </div>
 </div>
-
+</form>
 
 @endsection

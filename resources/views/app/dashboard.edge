@@ -35,6 +35,24 @@
             </li>
           </ul>
           <ul class="flex ml-auto items-center mt-2">
+            @loggedIn
+            <li>
+              <a
+                href="/my-profile"
+                class="inline-block bg-transparent border-white border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full mr-4"
+              >
+                My Profile
+              </a>
+            </li>
+            <li>
+              <a
+                href="/user/logout"
+                class="inline-block bg-transparent border-white border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full mr-4"
+              >
+               Logout
+              </a>
+            </li>
+            @else
             <li>
               <a
                 href="/register"
@@ -43,6 +61,7 @@
                 Daftar
               </a>
             </li>
+
             <li>
               <a
                 href="/login"
@@ -51,6 +70,7 @@
                 Akun Saya
               </a>
             </li>
+            @endloggedIn
           </ul>
         </header>
         <div class="flex items-center pt-10 px-5 md:px-0">

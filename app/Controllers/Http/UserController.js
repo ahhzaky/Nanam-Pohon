@@ -20,7 +20,7 @@ class UserController {
   registerView({ view }) {
     return view.render("app.register");
   }
-  async store({ request, response, session }) {
+  async doRegister({ request, response, session }) {
     const rules = {
       name: "required|string",
       role: "required|string",
@@ -45,7 +45,7 @@ class UserController {
     user.password = data.password;
     await user.save();
 
-    return response.redirect("/", true);
+    return response.redirect("/register-success", true);
   }
 
   //succes register
@@ -59,7 +59,7 @@ class UserController {
   }
 
   // login akun
-  async login({ request, response, auth, session }) {
+  async doLogin({ request, response, auth, session }) {
     const data = request.post();
     const rules = {
       email: "required",
@@ -76,8 +76,57 @@ class UserController {
 
     const { email, password } = request.only(["email", "password"]);
     const token = await auth.attempt(email, password);
+    console.log(token);
 
-    return response.redirect("/register-success", true);
+    return response.redirect("/", true);
+  }
+
+  // profile view
+  async profileView({ auth, view }) {
+    const user = await auth.getUser();
+    return view.render("app.my-profile", { user });
+  }
+  async updateProfile({ request, response, session, params, auth }) {
+    const id = params.id;
+    const data = request.post();
+    const user = await User.find(id);
+
+    const rules = {
+      name: "required|string",
+      email: "required|email",
+    };
+
+    const validation = await validateAll(data, rules);
+    if (validation.fails()) {
+      // true susces jika error maka ia akan mereturn error
+      session // bawaan adonis memakai session untuk cek validasi data input
+        .withErrors(validation.messages())
+        .flashAll()
+        .flash({ notification: "Data gagal diupdate" });
+      return response.redirect("back"); // untuk ke halamannya
+    }
+
+    user.name = data.name;
+    user.role = data.role;
+    user.email = data.email;
+
+    //user.merge(request.only(["name", "role", "email"]));
+    await user.save();
+    session.flash({ notification: "Data berhasil diupdate" });
+    return response.redirect("back");
+  }
+
+  //dashboar
+  async dashboard({ auth, view }) {
+    // const user = await auth.getUser();
+    // console.log(user._id);
+    return view.render("app.dashboard");
+  }
+
+  // logout
+  async destroy({ auth, response }) {
+    await auth.logout();
+    return response.redirect("back");
   }
 }
 
