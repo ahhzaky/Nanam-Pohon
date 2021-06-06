@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="/css/styles.css" rel="stylesheet">
+  <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  <title>Nanam Pohon</title>
+</head>
+<body>
+  <div class="antialiased">
+    <div class="landing-page">
+      <section class="landing-hero pt-5">
+        <div class="header__bg__show_detail"></div>
+        <div class="container mx-auto relative">
+          <header class="flex items-center">
+            <div style="height: 54px" class="pr-5">
+              <img src="/logo.svg" alt="logo" class="h-full" />
+            </div>
+            <ul class="flex items-center">
+              <li class="">
+                <a
+                  class="text-white hover:text-teal-500  text-lg px-4 py-3"
+                  href="/"
+                  ><u class="no-underline hover:underline">Home</u></a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-white hover:text-teal-500 text-lg px-4 py-3"
+                  href="/show-donasi"
+                  ><u class="no-underline hover:underline">Donasi</u></a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-white hover:text-teal-500 text-lg px-4 py-3"
+                  href="/features.html"
+                  ><u class="no-underline hover:underline">History</u></a
+                >
+              </li>
+            </ul>
+            <ul class="flex ml-auto items-center mt-2">
+              @loggedIn
+            <li>
+              <a
+                href="/my-profile"
+                class="inline-block bg-transparent border-white border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full mr-4"
+              >
+                My Profile
+              </a>
+            </li>
+            <li>
+              <a
+                href="/user/logout"
+                class="inline-block bg-transparent border-white border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full mr-4"
+              >
+               Logout
+              </a>
+            </li>
+            @else
+            <li>
+              <a
+                href="/register"
+                class="inline-block bg-transparent border-white border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full mr-4"
+              >
+                Daftar
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="/login"
+                class="inline-block bg-transparent border-white border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full"
+              >
+                Akun Saya
+              </a>
+            </li>
+            @endloggedIn
+            </ul>
+          </header>
+        </div>
+  @!section('content')
+</section>
+</div>
+</div>
+</body>
+</html>
