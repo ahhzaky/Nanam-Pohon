@@ -16,9 +16,9 @@ class PageController {
   // }
 
   //Berhasil daftar
-  registerSuccess({ view }) {
-    return view.render("app.register-success");
-  }
+  // registerSuccess({ view }) {
+  //   return view.render("app.register-success");
+  // }
   // lihat semua donasi
   showDonasi({ view }) {
     return view.render("app.show-donasi");
@@ -42,6 +42,13 @@ class PageController {
 
   createDonasi({ view }) {
     return view.render("app.create-donasi");
+  }
+
+  donasiInfo({ view }) {
+    return view.render("app.donasi-info");
+  }
+  editDonasi({ view }) {
+    return view.render("app.edit-donasi");
   }
 }
 

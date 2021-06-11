@@ -36,9 +36,12 @@ Route.get("/my-history", "PageController.myHistory");
 
 Route.get("/upload-image", "PageController.uploadImage");
 
-Route.get("/success-register", "PageController.successRegister");
+//Route.get("/success-register", "PageController.successRegister");
 
 Route.get("/create-donasi", "PageController.createDonasi");
+
+Route.get("/donasi-info", "PageController.donasiInfo");
+Route.get("/edit-donasi", "PageController.editDonasi");
 
 //Route.post("/users", "UserController.store");
 
