@@ -20,7 +20,7 @@ class UserController {
   registerView({ view }) {
     return view.render("app.register");
   }
-  async doRegister({ request, response, session }) {
+  async doRegister({ request, response, session, auth }) {
     const rules = {
       name: "required|string",
       role: "required|string",
@@ -44,6 +44,7 @@ class UserController {
     user.email = data.email;
     user.password = data.password;
     await user.save();
+    await auth.attempt(data.email, data.password);
 
     return response.redirect("/register-success", true);
   }
@@ -76,7 +77,6 @@ class UserController {
 
     const { email, password } = request.only(["email", "password"]);
     const token = await auth.attempt(email, password);
-    console.log(token);
 
     return response.redirect("/", true);
   }

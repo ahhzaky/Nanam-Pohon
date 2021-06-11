@@ -63,4 +63,4 @@ Route.get("/my-profile", "UserController.profileView");
 Route.post("/update/user/:id", "UserController.updateProfile");
 
 //logout
-Route.put("/user/logout", "UserController.destroy");
+Route.get("/user/logout", "UserController.destroy");
