@@ -2,22 +2,32 @@
 
 
 @section('content')
+<form action="/edit-donasi" method="post">
+  {{ csrfField()}}
       <section class="container mx-auto pt-20 ">
         <div class="flex justify-between items-center">
           <div class="w-full mr-6">
             <h2 class="text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
           </div>
+
         </div>
+        @if(flashMessage('notification'))
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+              {{ flashMessage('notification') }}
+              </div>
+          @endif
         <div class="flex justify-between items-center">
           <div class="w-3/4 mr-6">
             <h3 class="text-2xl text-gray-900 mb-4">Buat donasi hutan</h3>
           </div>
           <div class="w-1/4 text-right">
-            <a
-              href="/dashboard/detail.html"
+            <button type="submit">
+              <a
               class="bg-green-button hover:bg-green-button text-white font-bold px-4 py-1 rounded inline-flex items-center">
               Simpan
-            </a>
+              </a>
+            </button>
+
           </div>
 
         </div>
@@ -35,10 +45,14 @@
                       Nama Hutan
                     </label>
                     <input
+                      id="name_tree"
+                      name="name_tree"
                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       type="text"
-                      placeholder="Contoh: Demi Gunpla Demi Istri"
-                    />
+                      placeholder="Contoh: Hutan Monteverde "
+                      value="{{ old('name_tree') }}"
+                      />
+                    {{ elIf('<span style="color: black;">$self</span>', getErrorFor('name_tree'), hasErrorFor('name_tree')) }}
                   </div>
                   <div class="w-full md:w-1/2 px-3">
                     <label
@@ -47,10 +61,14 @@
                       Harga
                     </label>
                     <input
+                      id="price_goal"
+                      name="price_goal"
                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       type="number"
                       placeholder="Contoh: 200000"
+                      value="{{ old('price_goal') }}"
                     />
+                    {{ elIf('<span style="color: black;">$self</span>', getErrorFor('price_goal'), hasErrorFor('price_goal')) }}
                   </div>
                   <div class="w-full px-3">
                     <label
@@ -59,10 +77,14 @@
                       Deskripsi pendek
                     </label>
                     <input
+                      id="short_desc"
+                      name="short_desc"
                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       type="text"
-                      placeholder="Deskripsi singkat mengenai projectmu"
-                    />
+                      placeholder="Deskripsi singkat mengenai donasi hutan mu"
+                      value="{{ old('short_desc') }}"
+                      />
+                    {{ elIf('<span style="color: black;">$self</span>', getErrorFor('short_desc'), hasErrorFor('short_desc')) }}
                   </div>
                   <div class="w-full px-3">
                     <label
@@ -71,10 +93,14 @@
                       List tujuan mengadakan donasi
                     </label>
                     <input
+                      id="goal_desc"
+                      name="goal_desc"
                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       type="text"
                       placeholder="Contoh: Ayam, Nasi Goreng, Piring"
-                    />
+                      value="{{ old('goal_desc') }}"
+                      />
+                    {{ elIf('<span style="color: black;">$self</span>', getErrorFor('goal_desc'), hasErrorFor('goal_desc')) }}
                   </div>
                   <div class="w-full px-3">
                     <label
@@ -82,11 +108,18 @@
                     >
                       Deskripsi
                     </label>
+
                     <textarea
+                      id="long_desc"
+                      name="long_desc"
                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       type="text"
-                      placeholder="Isi deskripsi panjang untuk projectmu"
-                    ></textarea>
+                      placeholder="Isi deskripsi panjang untuk donasimu"
+                      value="{{ old('long_desc') }}"
+
+                      >
+                    </textarea>
+                    {{ elIf('<span style="color: black;">$self</span>', getErrorFor('long_desc'), hasErrorFor('long_desc')) }}
                   </div>
                 </div>
               </form>
@@ -94,4 +127,5 @@
           </div>
         </div>
       </section>
+    </form>
 @endsection

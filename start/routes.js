@@ -38,10 +38,10 @@ Route.get("/upload-image", "PageController.uploadImage");
 
 //Route.get("/success-register", "PageController.successRegister");
 
-Route.get("/create-donasi", "PageController.createDonasi");
+//Route.get("/create-donasi", "PageController.createDonasi");
 
 Route.get("/donasi-info", "PageController.donasiInfo");
-Route.get("/edit-donasi", "PageController.editDonasi");
+// Route.get("/edit-donasi", "PageController.editDonasi");
 
 //Route.post("/users", "UserController.store");
 
@@ -67,3 +67,8 @@ Route.post("/update/user/:id", "UserController.updateProfile");
 
 //logout
 Route.get("/user/logout", "UserController.destroy");
+
+// CAMPAIGN
+Route.get("/create-donasi", "CampaignController.createDonasiView");
+Route.post("/edit-donasi", "CampaignController.doCreateDonasi");
+Route.get("/edit-donasi", "CampaignController.editDonasi");
