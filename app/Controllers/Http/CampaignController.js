@@ -1,6 +1,7 @@
 "use strict";
 const { validateAll } = use("Validator");
 const Campaign = use("App/Models/Campaign");
+const { v4: uuidv4 } = require("uuid");
 
 class CampaignController {
   // view create-donasi
@@ -8,7 +9,7 @@ class CampaignController {
     return view.render("app.create-donasi");
   }
   //create-donasi
-  async doCreateDonasi({ request, response, session, auth }) {
+  async doCreateDonasi({ request, response, session, auth, view }) {
     const user = await auth.getUser();
     const rules = {
       name_tree: "required|string",
@@ -18,7 +19,6 @@ class CampaignController {
       price_goal: "required|integer",
     };
     const data = request.post();
-    console.log(data.long_desc);
     const validation = await validateAll(data, rules);
     if (validation.fails()) {
       // true susces jika error maka ia akan mereturn error
@@ -28,9 +28,10 @@ class CampaignController {
         .flash({ notification: "Data gagal dibuat" });
       return response.redirect("back"); // untuk ke halamannya
     }
-
+    // buat id untuk user campaign
+    const id = uuidv4().substr(0, 7);
     const campaign = new Campaign();
-    campaign.id_user = user._id;
+    campaign.id_user = id;
     campaign.name_tree = data.name_tree;
     campaign.short_desc = data.short_desc;
     campaign.long_desc = data.long_desc;
@@ -40,11 +41,18 @@ class CampaignController {
     campaign.price_now = 0;
     await campaign.save();
 
-    return response.redirect("/edit-donasi", true);
+    //const id_user = user._id.toString();
+    return response.route("CampaignController.editDonasi", {
+      id_user: id,
+    });
   }
 
-  editDonasi({ view }) {
-    return view.render("app.edit-donasi");
+  async editDonasi({ view, params }) {
+    const id_user = params.id_user;
+    console.log("id: " + id_user);
+    const dataInfoCampaign = await Campaign.find(id_user);
+    console.log("dataCampaig: " + dataInfoCampaign);
+    return view.render("app.edit-donasi", { dataInfoCampaign });
   }
 }
 

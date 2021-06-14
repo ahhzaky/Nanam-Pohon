@@ -51,6 +51,7 @@ Route.get("/donasi-info", "PageController.donasiInfo");
 //Daftar Akun
 Route.get("/register", "UserController.registerView");
 Route.post("/register", "UserController.doRegister");
+Route.get("/success-register", "UserController.registerSuccess");
 
 //Login
 
@@ -71,4 +72,6 @@ Route.get("/user/logout", "UserController.destroy");
 // CAMPAIGN
 Route.get("/create-donasi", "CampaignController.createDonasiView");
 Route.post("/edit-donasi", "CampaignController.doCreateDonasi");
-Route.get("/edit-donasi", "CampaignController.editDonasi");
+Route.get("/edit-donasi/:id_user", "CampaignController.editDonasi").as(
+  "edit-donasi"
+);

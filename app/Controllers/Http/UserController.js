@@ -38,7 +38,6 @@ class UserController {
     }
 
     const user = new User();
-
     user.name = data.name;
     user.role = data.role;
     user.email = data.email;
@@ -46,7 +45,7 @@ class UserController {
     await user.save();
     await auth.attempt(data.email, data.password);
 
-    return response.redirect("/register-success", true);
+    return response.redirect("/success-register", true);
   }
 
   //succes register
