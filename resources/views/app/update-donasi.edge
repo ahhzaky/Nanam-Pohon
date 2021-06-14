@@ -2,7 +2,7 @@
 
 
 @section('content')
-<form action="/update-donasi/{{dataInfoCampaign.id_user}}" method="post">
+<form action="/update-donasi/{{dataInfoCampaign.id_campaign}}" method="post">
   {{ csrfField()}}
       <section class="container mx-auto pt-20 ">
         <div class="flex justify-between items-center">
@@ -29,7 +29,7 @@
 
             </button>
               <a
-              href="/edit-donasi/{{dataInfoCampaign.id_user}}"
+              href="/edit-donasi/{{dataInfoCampaign.id_campaign}}"
                 class="bg-green-button hover:bg-green-button text-white font-bold px-4 py-1 rounded inline-flex items-center">
                 Kembali
               </a>

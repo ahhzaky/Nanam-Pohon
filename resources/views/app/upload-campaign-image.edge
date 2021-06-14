@@ -1,0 +1,115 @@
+@layout('layout.base-user')
+
+
+@section('content')
+<form action="/upload-campaign-image/{{dataInfoCampaign.id_campaign}}" method="post" enctype="multipart/form-data">
+  {{ csrfField()}}
+      <section class="container mx-auto pt-20 ">
+        <div class="flex justify-between items-center">
+          <div class="w-full mr-6">
+            <h2 class="text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
+          </div>
+
+        </div>
+        @if(flashMessage('notification'))
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+              {{ flashMessage('notification') }}
+              </div>
+          @endif
+        <div class="flex justify-between items-center">
+          <div class="w-3/4 mr-6">
+            <h3 class="text-2xl text-gray-900 mb-4">Upload foto donasi {{dataInfoCampaign.name_tree}}</h3>
+          </div>
+          <div class="w-1/4 text-right">
+            <button type="submit">
+              <a
+              class="bg-green-button hover:bg-green-button text-white font-bold px-4 py-1 rounded inline-flex items-center">
+              Simpan
+              </a>
+
+              <a
+              href="/edit-donasi/{{dataInfoCampaign.id_campaign}}"
+                class="bg-green-button hover:bg-green-button text-white font-bold px-4 py-1 rounded inline-flex items-center">
+                Kembali
+              </a>
+            </button>
+
+
+          </div>
+
+        </div>
+        <div class="block mb-2">
+          <div class="w-full lg:max-w-full lg:flex mb-4">
+            <div
+              class="w-full border border-gray-400 bg-white rounded p-8 flex flex-col justify-between leading-normal"
+            >
+              <div class="w-full">
+                <div class="flex flex-wrap -mx-3 mb-6">
+
+
+                  <div class="w-full px-3">
+                    <label
+                      class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-3"
+                    >
+                      Image 1
+                    </label>
+                    <input
+                      id="image_campaign_one"
+                      name="image_campaign_one"
+                      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                      type="file"
+                      />
+
+                  </div>
+
+                  <div class="w-full px-3">
+                    <label
+                      class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-3"
+                    >
+                      Image 2
+                    </label>
+                    <input
+                      id="image_campaign_two"
+                      name="image_campaign_two"
+                      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                      type="file"
+                      />
+
+                  </div>
+
+                  <div class="w-full px-3">
+                    <label
+                      class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-3"
+                    >
+                      Image 3
+                    </label>
+                    <input
+                      id="image_campaign_three"
+                      name="image_campaign_three"
+                      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                      type="file"
+                      />
+
+                  </div>
+
+                  <div class="w-full px-3">
+                    <label
+                      class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-3"
+                    >
+                      Image 4
+                    </label>
+                    <input
+                      id="image_campaign_four"
+                      name="image_campaign_four"
+                      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                      type="file"
+                      />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </form>
+@endsection

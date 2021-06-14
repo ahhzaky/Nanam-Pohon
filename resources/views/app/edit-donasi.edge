@@ -14,7 +14,7 @@
     </div>
     <div class="w-1/4 text-right">
       <a
-        href="/update-donasi/{{dataInfoCampaign.id_user}}"
+        href="/update-donasi/{{dataInfoCampaign.id_campaign}}"
         class="bg-green-button hover:bg-green-button text-white font-bold px-4 py-1 rounded inline-flex items-center"
       >
         Edit
@@ -50,9 +50,6 @@
             @each(data in dataInfoCampaign.goal_desc)
             <li>{{data}}</li>
             @endeach
-
-
-
           </ul>
           <p class="text-sm font-bold flex items-center mb-1 mt-4">
             Price
@@ -68,7 +65,7 @@
     </div>
     <div class="w-1/4 text-right">
       <a
-        href="#"
+        href="/upload-campaign-image/{{dataInfoCampaign.id_campaign}}"
         class="bg-green-button hover:bg-green-button text-white font-bold px-4 py-1 rounded inline-flex items-center"
       >
         Upload
@@ -77,31 +74,32 @@
   </div>
   <div class="flex -mx-2">
     <div
+
+      class="relative w-1/4 bg-white m-2 p-2 border border-gray-400 rounded"
+    >
+        <figure class="item-thumbnail">
+          <img src="/campaign/{{dataInfoCampaign.campaignImageOne}}" alt="" class="rounded w-full"/>
+        </figure>
+    </div>
+    <div
       class="relative w-1/4 bg-white m-2 p-2 border border-gray-400 rounded"
     >
       <figure class="item-thumbnail">
-        <img src="/project-slider-1.jpg" alt="" class="rounded w-full" />
+        <img src="/campaign/{{dataInfoCampaign.campaignImageTwo}}" alt="" class="rounded w-full" />
       </figure>
     </div>
     <div
       class="relative w-1/4 bg-white m-2 p-2 border border-gray-400 rounded"
     >
       <figure class="item-thumbnail">
-        <img src="/project-slider-2.jpg" alt="" class="rounded w-full" />
+        <img src="/campaign/{{dataInfoCampaign.campaignImageThree}}" alt="" class="rounded w-full" />
       </figure>
     </div>
     <div
       class="relative w-1/4 bg-white m-2 p-2 border border-gray-400 rounded"
     >
-      <figure class="item-thumbnail">
-        <img src="/project-slider-3.jpg" alt="" class="rounded w-full" />
-      </figure>
-    </div>
-    <div
-      class="relative w-1/4 bg-white m-2 p-2 border border-gray-400 rounded"
-    >
-      <figure class="item-thumbnail">
-        <img src="/project-slider-4.jpg" alt="" class="rounded w-full" />
+      <figure name="pic_four" class="item-thumbnail">
+        <img src="/campaign/{{dataInfoCampaign.campaignImageFour}}" alt="" class="rounded w-full" type="submit" />
       </figure>
     </div>
   </div>

@@ -66,9 +66,18 @@ Route.get("/user/logout", "UserController.destroy");
 // CAMPAIGN
 Route.get("/create-donasi", "CampaignController.createDonasiView");
 Route.post("/edit-donasi", "CampaignController.doCreateDonasi");
-Route.get("/edit-donasi/:id_user", "CampaignController.editDonasi").as(
+Route.get("/edit-donasi/:id_campaign", "CampaignController.editDonasi").as(
   "edit-donasi"
 );
 
-Route.get("/update-donasi/:id_user", "CampaignController.updateDonasiView");
-Route.post("/update-donasi/:id_user", "CampaignController.udpateDonasi");
+Route.get("/update-donasi/:id_campaign", "CampaignController.updateDonasiView");
+Route.post("/update-donasi/:id_campaign", "CampaignController.udpateDonasi");
+
+Route.get(
+  "/upload-campaign-image/:id_campaign",
+  "CampaignController.uploadCampaignImageView"
+);
+Route.post(
+  "/upload-campaign-image/:id_campaign",
+  "CampaignController.uploadCampaignImage"
+);
