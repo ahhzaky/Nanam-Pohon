@@ -18,12 +18,6 @@ const UserController = require("../app/Controllers/Http/UserController");
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use("Route");
 
-//Route.get("/", "PageController.dashboard");
-
-//Route.get("/login", "PageController.login");
-
-//Route.get("/register", "PageController.register");
-
 //debug
 // berhasil daftar
 Route.get("/register-success", "PageController.registerSuccess");
@@ -75,3 +69,6 @@ Route.post("/edit-donasi", "CampaignController.doCreateDonasi");
 Route.get("/edit-donasi/:id_user", "CampaignController.editDonasi").as(
   "edit-donasi"
 );
+
+Route.get("/update-donasi/:id_user", "CampaignController.updateDonasiView");
+Route.post("/update-donasi/:id_user", "CampaignController.udpateDonasi");

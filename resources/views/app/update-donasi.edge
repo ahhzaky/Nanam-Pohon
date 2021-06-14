@@ -2,7 +2,7 @@
 
 
 @section('content')
-<form action="/edit-donasi" method="post">
+<form action="/update-donasi/{{dataInfoCampaign.id_user}}" method="post">
   {{ csrfField()}}
       <section class="container mx-auto pt-20 ">
         <div class="flex justify-between items-center">
@@ -18,7 +18,7 @@
           @endif
         <div class="flex justify-between items-center">
           <div class="w-3/4 mr-6">
-            <h3 class="text-2xl text-gray-900 mb-4">Buat donasi hutan</h3>
+            <h3 class="text-2xl text-gray-900 mb-4">Update donasi hutan</h3>
           </div>
           <div class="w-1/4 text-right">
             <button type="submit">
@@ -26,8 +26,13 @@
               class="bg-green-button hover:bg-green-button text-white font-bold px-4 py-1 rounded inline-flex items-center">
               Simpan
               </a>
-            </button>
 
+            </button>
+              <a
+              href="/edit-donasi/{{dataInfoCampaign.id_user}}"
+                class="bg-green-button hover:bg-green-button text-white font-bold px-4 py-1 rounded inline-flex items-center">
+                Kembali
+              </a>
           </div>
 
         </div>
@@ -49,8 +54,8 @@
                       name="name_tree"
                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       type="text"
-                      placeholder="Nama hutan yang ingin kamu buat"
-                      value="{{ old('name_tree') }}"
+                      placeholder="Contoh: Hutan Monteverde "
+                      value="{{ dataInfoCampaign.name_tree }}"
                       />
                     {{ elIf('<span style="color: black;">$self</span>', getErrorFor('name_tree'), hasErrorFor('name_tree')) }}
                   </div>
@@ -66,7 +71,7 @@
                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       type="number"
                       placeholder="Contoh: 200000"
-                      value="{{ old('price_goal') }}"
+                      value="{{ dataInfoCampaign.price_goal}}"
                     />
                     {{ elIf('<span style="color: black;">$self</span>', getErrorFor('price_goal'), hasErrorFor('price_goal')) }}
                   </div>
@@ -82,7 +87,7 @@
                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       type="text"
                       placeholder="Deskripsi singkat mengenai donasi hutan mu"
-                      value="{{ old('short_desc') }}"
+                      value="{{ dataInfoCampaign.short_desc }}"
                       />
                     {{ elIf('<span style="color: black;">$self</span>', getErrorFor('short_desc'), hasErrorFor('short_desc')) }}
                   </div>
@@ -98,7 +103,7 @@
                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       type="text"
                       placeholder="Ini tujuan kamu membuka donasi"
-                      value="{{ old('goal_desc') }}"
+                      value="{{ dataInfoCampaign.goal_desc }}"
                       />
                     {{ elIf('<span style="color: black;">$self</span>', getErrorFor('goal_desc'), hasErrorFor('goal_desc')) }}
                   </div>
@@ -114,10 +119,10 @@
                       name="long_desc"
                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       type="text"
-                      placeholder="Deskripsi panjang mengenai donasi hutan mu"
-                      value="{{ old('long_desc') }}"
-
+                      placeholder="Deskripsi singkat mengenai donasi hutan mu"
+                      value="{{ dataInfoCampaign.long_desc }}"
                       >
+                      {{dataInfoCampaign.long_desc}}
                     </textarea>
                     {{ elIf('<span style="color: black;">$self</span>', getErrorFor('long_desc'), hasErrorFor('long_desc')) }}
                   </div>

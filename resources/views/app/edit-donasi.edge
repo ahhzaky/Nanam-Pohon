@@ -5,7 +5,7 @@
 <section class="container mx-auto pt-8">
   <div class="flex justify-between items-center">
     <div class="w-full mr-6">
-      <h2 class="text-4xl text-gray-900 mb-2 font-medium">Dashboard {{dataInfoCampaign.name_tree}}}</h2>
+      <h2 class="text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
     </div>
   </div>
   <div class="flex justify-between items-center">
@@ -13,12 +13,12 @@
       <h3 class="text-2xl text-gray-900 mb-4">Campaign Details</h3>
     </div>
     <div class="w-1/4 text-right">
-      <nuxt-link
-        to="/dashboard/projects/create"
+      <a
+        href="/update-donasi/{{dataInfoCampaign.id_user}}"
         class="bg-green-button hover:bg-green-button text-white font-bold px-4 py-1 rounded inline-flex items-center"
       >
         Edit
-      </nuxt-link>
+      </a>
     </div>
   </div>
   <div class="block mb-2">
@@ -28,39 +28,36 @@
       >
         <div>
           <div class="text-gray-900 font-bold text-xl mb-2">
-            Cari Uang Buat Gunpla
+            {{dataInfoCampaign.name_tree}}}
           </div>
           <p class="text-sm font-bold flex items-center mb-1">
-            Description
+            Short Description
+          </p>
+          <p class="text-gray-700 text-base mb-2">
+            {{dataInfoCampaign.short_desc}}}
+          </p>
+          <p class="text-sm font-bold flex items-center mb-1">
+            Long Description
           </p>
           <p class="text-gray-700 text-base">
-            Designed to fit your dedicated typing experience. No matter
-            what you like, linear, clicky or a little in between, we’ve
-            got you covered with three Gateron switches options (Blue,
-            Brown, Red). With a lifespan of 50 million keystroke lifespan
-            we want to make sure that you experience same feedback for
-            every keystroke.
-          </p>
-          <p class="text-gray-700 text-base">
-            With N-key rollover (NKRO on wired mode only) you can register
-            as many keys as you can press at once without missing out
-            characters. It allows to use all the same media keys as
-            conventional macOS.
+            {{dataInfoCampaign.long_desc}}}
           </p>
           <p class="text-sm font-bold flex items-center mb-1 mt-4">
             What Will Funders Get
           </p>
           <ul class="list-disc ml-5">
-            <li>Equity of the startup directly from the founder</li>
-            <li>Special service or product that startup has</li>
-            <li>
-              You can also sell your equity once the startup going IPO
-            </li>
+
+            @each(data in dataInfoCampaign.goal_desc)
+            <li>{{data}}</li>
+            @endeach
+
+
+
           </ul>
           <p class="text-sm font-bold flex items-center mb-1 mt-4">
             Price
           </p>
-          <p class="text-4xl text-gray-700 text-base">200.000</p>
+          <p class="text-4xl text-gray-700 text-base">Rp. {{dataInfoCampaign.price_goal}}}</p>
         </div>
       </div>
     </div>

@@ -108,9 +108,8 @@ class UserController {
     user.name = data.name;
     user.role = data.role;
     user.email = data.email;
-
-    //user.merge(request.only(["name", "role", "email"]));
     await user.save();
+
     session.flash({ notification: "Data berhasil diupdate" });
     return response.redirect("back");
   }
