@@ -42,6 +42,7 @@ class UserController {
     user.role = data.role;
     user.email = data.email;
     user.password = data.password;
+    user.createDonastion = [];
     await user.save();
     await auth.attempt(data.email, data.password);
 

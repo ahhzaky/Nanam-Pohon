@@ -1,6 +1,7 @@
 "use strict";
 const { validateAll } = use("Validator");
 const Campaign = use("App/Models/Campaign");
+const User = use("App/Models/User");
 const { v4: uuidv4 } = require("uuid");
 const Helpers = use("Helpers");
 
@@ -12,6 +13,7 @@ class CampaignController {
   //create-donasi
   async doCreateDonasi({ request, response, session, auth, view }) {
     const user = await auth.getUser();
+
     const rules = {
       name_tree: "required|string",
       short_desc: "required|string",
@@ -41,7 +43,16 @@ class CampaignController {
     campaign.price_goal = data.price_goal;
     campaign.price_persen = 0;
     campaign.price_now = 0;
+    campaign.campaignImageOne = "";
+    campaign.campaignImageTwo = "";
+    campaign.campaignImageThree = "";
+    campaign.campaignImageFour = "";
     await campaign.save();
+
+    const id_user = user._id;
+    const dataUser = await User.findBy("_id", id_user);
+    dataUser.createDonastion.push(id);
+    await dataUser.save();
 
     //const id_user = user._id.toString();
     return response.route("CampaignController.editDonasi", {

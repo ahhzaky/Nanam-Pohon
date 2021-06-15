@@ -19,6 +19,7 @@
                 ><u class="hover:underline">Home</u></a
               >
             </li>
+            @loggedIn
             <li>
               <a
                 class="text-white hover:text-teal-500 text-lg px-4 py-3"
@@ -26,7 +27,6 @@
                 ><u class="no-underline hover:underline">Donasi</u></a
               >
             </li>
-            @loggedIn
             <li>
               <a
                 class="text-white hover:text-teal-500 text-lg px-4 py-3"
@@ -85,11 +85,23 @@
               Danai mereka akan menjadi sumber <br />
               kehidupan yang baru
             </p>
-            <a href="/show-donasi"><button
+            @loggedIn
+            <a href="/show-donasi">
+              <button
               class="block bg-orange-button hover:bg-green-button text-white font-semibold px-12 py-3 text-xl rounded-full"
-            >
-            Temukan Donasi
-            </button></a>
+              >
+              Temukan Donasi
+              </button>
+            </a>
+            @else
+            <a href="/register">
+              <button
+              class="block bg-orange-button hover:bg-green-button text-white font-semibold px-12 py-3 text-xl rounded-full"
+              >
+              Temukan Donasi
+              </button>
+            </a>
+            @endloggedIn
           </div>
           <div class="w-1/2 flex justify-center">
             <img src="/hero-image@2x.png" alt="crowdfunding project" />
@@ -158,9 +170,12 @@
           </h2>
         </div>
         <div class="w-auto mt-5">
+          @loggedIn
           <a class="text-gray-900 hover:underline text-md font-medium" href="/show-donasi"
-            >View All</a
-          >
+            >View All
+          </a>
+          @else
+          @endloggedIn
         </div>
       </div>
       <div class="flex mt-3 -mx-6">
