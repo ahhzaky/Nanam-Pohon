@@ -16,4 +16,4 @@ database/*.sqlite
 .idea
 
 # tailwind
-public/css/*
+public/css/*.css
