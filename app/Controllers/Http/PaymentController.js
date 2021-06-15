@@ -36,21 +36,24 @@ class PaymentController {
     await dataCampaign.save();
     console.log("Succcess ADD money to campaign" + dataCampaign.name_tree);
 
+    //user add payDonation
+    const dataUser = await User.findBy("_id", id_user);
+    dataUser.payDonastion.push(id);
+    await dataUser.save();
+
     //CREATE PAYMENT
     const payment = new Payment();
     payment.id_payment = id;
     payment.id_user = id_user;
     payment.id_campaign = id_campaign;
+    payment.name_user = dataUser.name;
     payment.name_tree = dataCampaign.name_tree;
+    payment.short_desc = dataCampaign.short_desc;
     payment.date = dateNow;
+    payment.image_history = dataCampaign.campaignImageOne;
     payment.price_donate = data.price_donate;
     await payment.save();
     console.log("SUCCES PAYMENT");
-
-    //user add payDonation
-    const dataUser = await User.findBy("_id", id_user);
-    dataUser.payDonastion.push(id);
-    await dataUser.save();
 
     return response.redirect("/success-donation");
   }

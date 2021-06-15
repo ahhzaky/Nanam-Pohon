@@ -201,7 +201,6 @@ class CampaignController {
 
   async showDonasi({ view }) {
     const campaign = await Campaign.all();
-
     return view.render("app.show-donasi", { campaign: campaign.rows });
   }
 

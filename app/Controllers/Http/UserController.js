@@ -1,21 +1,9 @@
 "use strict";
 const { validateAll } = use("Validator");
 const User = use("App/Models/User");
+const Payment = use("App/Models/Payment");
 
 class UserController {
-  // index({ view }) {
-  //   return view.render("layouts.dashboard");
-  // }
-  // async store({ params, response, view }) {
-  //   const userData = request.only(["email", "password"]);
-  //   const user = await User.create(userData);
-
-  //   return response.created({
-  //     status: true,
-  //     data: user,
-  //   });
-  // }
-
   // register user
   registerView({ view }) {
     return view.render("app.register");
@@ -123,8 +111,19 @@ class UserController {
     return view.render("app.dashboard");
   }
 
-  myHistoryView({ view }) {
-    return view.render("app.my-history");
+  async myHistoryView({ view, auth }) {
+    const user = await auth.getUser();
+    const id_user = user._id;
+    console.log(id_user);
+    // const dataPayment = await Payment.findBy("id_user", id_user);
+
+    const dataPayment = await Payment.all();
+
+    console.log(dataPayment);
+    return view.render("app.my-history", {
+      dataPayment: dataPayment.rows,
+      id_user,
+    });
   }
 
   // logout
