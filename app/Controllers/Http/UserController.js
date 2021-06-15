@@ -123,6 +123,10 @@ class UserController {
     return view.render("app.dashboard");
   }
 
+  myHistoryView({ view }) {
+    return view.render("app.my-history");
+  }
+
   // logout
   async destroy({ auth, response }) {
     await auth.logout();

@@ -26,7 +26,7 @@ Route.get("/register-success", "PageController.registerSuccess");
 
 //Route.get("/my-profile", "PageController.myProfile");
 
-Route.get("/my-history", "PageController.myHistory");
+//Route.get("/my-history", "PageController.myHistory");
 
 Route.get("/upload-image", "PageController.uploadImage");
 
@@ -55,6 +55,9 @@ Route.get("/register-success", "UserController.registerSuccess");
 
 //dashoar
 Route.get("/", "UserController.dashboard");
+
+//my-history
+Route.get("/my-history", "UserController.myHistoryView");
 
 //my profile
 Route.get("/my-profile", "UserController.profileView");

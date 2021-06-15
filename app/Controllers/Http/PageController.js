@@ -28,9 +28,9 @@ class PageController {
   //   return view.render("app.my-profile");
   // }
   // history pembayaran
-  myHistory({ view }) {
-    return view.render("app.my-history");
-  }
+  // myHistory({ view }) {
+  //   return view.render("app.my-history");
+  // }
 
   uploadImage({ view }) {
     return view.render("app.upload-register");
