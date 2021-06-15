@@ -43,6 +43,7 @@ class UserController {
     user.email = data.email;
     user.password = data.password;
     user.createDonastion = [];
+    user.payDonastion = [];
     await user.save();
     await auth.attempt(data.email, data.password);
 

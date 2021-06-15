@@ -482,12 +482,23 @@
             <br />
             hutan yang ada
           </h1>
+          @loggedIn
           <a href="/show-donasi">
             <button
-            class="inline-block bg-orange-button hover:bg-green-button text-white font-semibold px-12 py-4 mt-8 text-lg rounded-full"
-          >
+              class="inline-block bg-orange-button hover:bg-green-button text-white font-semibold px-12 py-4 mt-8 text-lg rounded-full"
+            >
             Mulai Donasi
-          </button></a>
+            </button>
+          </a>
+          @else
+          <a href="/register">
+            <button
+              class="inline-block bg-orange-button hover:bg-green-button text-white font-semibold px-12 py-4 mt-8 text-lg rounded-full"
+            >
+            Mulai Donasi
+            </button>
+          </a>
+          @endloggedIn
         </div>
       </div>
     </section>
