@@ -21,11 +21,18 @@ adonis new yardstick
 
 or manually clone the repo and then run `npm install`.
 
-
 ### Migrations
 
 Run the following command to run startup migrations.
 
 ```js
 adonis migration:run
+```
+
+### Css running
+
+Run the following command to run startup load css.
+
+```js
+npm run css
 ```
