@@ -86,3 +86,8 @@ Route.post(
 Route.get("/show-donasi", "CampaignController.showDonasi");
 
 Route.get("/donasi-info/:id_campaign", "CampaignController.donasiInfo");
+
+//payment
+Route.post("/payment-donation/:id_campaign", "PaymentController.userPayment");
+
+Route.get("/success-donation", "PaymentController.succesPaymentView");

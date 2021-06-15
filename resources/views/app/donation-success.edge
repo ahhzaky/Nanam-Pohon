@@ -1,4 +1,4 @@
-@layout('master')
+@layout('layout.master')
 
 @section('content')
 
@@ -19,20 +19,20 @@
         </p>
         <div class="mb-4 mt-6">
           <div class="mb-3">
+            <a href="/show-donasi">
             <button
-              @click="$router.push({ path: '/' })"
-              class="block w-full bg-orange-button hover:bg-green-button text-white font-semibold px-6 py-4 text-lg rounded-full"
-            >
-              Lihat hutan lainnya
+              class="block w-full bg-orange-button hover:bg-green-button text-white font-semibold px-6 py-4 text-lg rounded-full">
+              Donasi lagi
             </button>
+          </a>
           </div>
           <div class="mb-4">
-            <button
-              @click="$router.push({ path: '/dashboard' })"
-              class="block w-full bg-transparent border border-gray-500 text-gray-500 hover:bg-green-button hover:border-green-button hover:text-white font-light px-6 py-4 text-lg rounded-full"
-            >
-              My Dashboard
-            </button>
+            <a href="/">
+              <button
+                class="block w-full bg-transparent border border-gray-500 text-gray-500 hover:bg-green-button hover:border-green-button hover:text-white font-light px-6 py-4 text-lg rounded-full">
+                My Dashboard
+              </button>
+          </a>
           </div>
         </div>
       </div>

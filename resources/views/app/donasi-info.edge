@@ -1,7 +1,13 @@
 @layout('layout.base-user');
 
 @section('content')
+
 <section class="container project-container mx-auto mt-40 ">
+  @if(flashMessage('notification'))
+  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+    {{ flashMessage('notification') }}
+    </div>
+    @endif
   <div class="flex mt-3">
     <div class="w-3/4 mr-6">
       <div class="bg-white p-3 mb-3 border border-gray-400 rounded-20">
@@ -91,18 +97,24 @@
             <li>{{dataList}}</li>
             @endeach
         </ul>
-        <input
-          type="number"
-          class="border border-gray-500 block w-full px-6 py-3 mt-4 rounded-full text-gray-800 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline"
-          placeholder="Bayar untuk donasi Rp."
-          value=""
-        />
-        <a
-          href="/fund-success.html"
-          class="text-center mt-3 button-cta block w-full bg-orange-button hover:bg-green-button text-white font-medium px-6 py-3 text-md rounded-full"
-        >
-          Donasi sekarang
-        </a>
+        <form action="/payment-donation/{{campaign.id_campaign}}" method="post">
+          {{ csrfField() }}
+          <input
+          id="price_donate"
+          name="price_donate"
+            type="number"
+            class="border border-gray-500 block w-full px-6 py-3 mt-4 rounded-full text-gray-800 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline"
+            placeholder="Bayar untuk donasi Rp."
+            value="{{ old('price_donate') }}"
+          />
+          {{ elIf('<span style="color: Red;">$self</span>', getErrorFor('price_donate'), hasErrorFor('price_donate')) }}
+          <button
+            type="submit"
+            class="text-center mt-3 button-cta block w-full bg-orange-button hover:bg-green-button text-white font-medium px-6 py-3 text-md rounded-full"
+          >
+            Donasi sekarang
+          </button>
+        </form>
       </div>
     </div>
   </div>

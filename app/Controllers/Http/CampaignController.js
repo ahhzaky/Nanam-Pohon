@@ -3,7 +3,8 @@ const { validateAll } = use("Validator");
 const Campaign = use("App/Models/Campaign");
 const User = use("App/Models/User");
 const { v4: uuidv4 } = require("uuid");
-const Helpers = use("Helpers");
+
+//const Helpers = use("Helpers");
 
 class CampaignController {
   // view create-donasi
@@ -46,6 +47,7 @@ class CampaignController {
     campaign.campaignImageTwo = "";
     campaign.campaignImageThree = "";
     campaign.campaignImageFour = "";
+    campaign.historyPayment = [];
     await campaign.save();
 
     const id_user = user._id;

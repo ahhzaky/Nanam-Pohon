@@ -28,6 +28,7 @@
     "@adonisjs/session": "^1.0.27",
     "@adonisjs/shield": "^1.0.8",
     "@adonisjs/validator": "^5.1.0",
+    "date-and-time": "^1.0.1",
     "lucid-mongo": "^3.1.6",
     "uuid": "^8.3.2"
   },
