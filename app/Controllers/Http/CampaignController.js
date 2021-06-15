@@ -198,6 +198,17 @@ class CampaignController {
     session.flash({ notification: "Gambar berhasil di Upload" });
     return response.redirect("back");
   }
+
+  async showDonasi({ view }) {
+    const campaign = await Campaign.all();
+
+    return view.render("app.show-donasi", { campaign: campaign.rows });
+  }
+
+  donasiInfo({ view, params }) {
+    console.log(params.id_campaign);
+    return view.render("app.donasi-info");
+  }
 }
 
 module.exports = CampaignController;

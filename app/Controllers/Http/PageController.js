@@ -20,9 +20,9 @@ class PageController {
   //   return view.render("app.register-success");
   // }
   // lihat semua donasi
-  showDonasi({ view }) {
-    return view.render("app.show-donasi");
-  }
+  // showDonasi({ view }) {
+  //   return view.render("app.show-donasi");
+  // }
   // profil saya
   // myProfile({ view }) {
   //   return view.render("app.my-profile");
@@ -40,13 +40,13 @@ class PageController {
   //   return view.render("app.success-register");
   // }
 
-  createDonasi({ view }) {
-    return view.render("app.create-donasi");
-  }
+  // createDonasi({ view }) {
+  //   return view.render("app.create-donasi");
+  // }
 
-  donasiInfo({ view }) {
-    return view.render("app.donasi-info");
-  }
+  // donasiInfo({ view }) {
+  //   return view.render("app.donasi-info");
+  // }
   editDonasi({ view }) {
     return view.render("app.edit-donasi");
   }

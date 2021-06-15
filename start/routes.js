@@ -22,7 +22,7 @@ const Route = use("Route");
 // berhasil daftar
 Route.get("/register-success", "PageController.registerSuccess");
 
-Route.get("/show-donasi", "PageController.showDonasi");
+//Route.get("/show-donasi", "PageController.showDonasi");
 
 //Route.get("/my-profile", "PageController.myProfile");
 
@@ -34,7 +34,7 @@ Route.get("/upload-image", "PageController.uploadImage");
 
 //Route.get("/create-donasi", "PageController.createDonasi");
 
-Route.get("/donasi-info", "PageController.donasiInfo");
+// Route.get("/donasi-info", "PageController.donasiInfo");
 // Route.get("/edit-donasi", "PageController.editDonasi");
 
 //Route.post("/users", "UserController.store");
@@ -77,7 +77,12 @@ Route.get(
   "/upload-campaign-image/:id_campaign",
   "CampaignController.uploadCampaignImageView"
 );
+
 Route.post(
   "/upload-campaign-image/:id_campaign",
   "CampaignController.uploadCampaignImage"
 );
+
+Route.get("/show-donasi", "CampaignController.showDonasi");
+
+Route.get("/donasi-info/:id_campaign", "CampaignController.donasiInfo");
