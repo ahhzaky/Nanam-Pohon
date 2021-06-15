@@ -31,7 +31,7 @@ adonis migration:run
 
 ### Css running
 
-Run the following command to run startup load css.
+Run the following command to run startup load css tailwind.
 
 ```js
 npm run css
