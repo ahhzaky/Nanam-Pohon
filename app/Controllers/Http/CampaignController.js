@@ -41,7 +41,6 @@ class CampaignController {
     campaign.long_desc = data.long_desc;
     campaign.goal_desc = data.goal_desc.split(",");
     campaign.price_goal = data.price_goal;
-    campaign.price_persen = 0;
     campaign.price_now = 0;
     campaign.campaignImageOne = "";
     campaign.campaignImageTwo = "";
@@ -104,7 +103,6 @@ class CampaignController {
     campaign.long_desc = data.long_desc;
     campaign.goal_desc = data.goal_desc.split(",");
     campaign.price_goal = data.price_goal;
-    campaign.price_persen = 0;
     campaign.price_now = 0;
     await campaign.save();
 
@@ -205,9 +203,13 @@ class CampaignController {
     return view.render("app.show-donasi", { campaign: campaign.rows });
   }
 
-  donasiInfo({ view, params }) {
-    console.log(params.id_campaign);
-    return view.render("app.donasi-info");
+  async donasiInfo({ view, params }) {
+    const campaign = await Campaign.findBy("id_campaign", params.id_campaign);
+
+    //temukan siap yang buat
+    const userLeader = await User.find(campaign.id_user);
+
+    return view.render("app.donasi-info", { campaign, userLeader });
   }
 }
 
