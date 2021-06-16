@@ -117,12 +117,12 @@ class UserController {
   async myHistoryView({ view, auth }) {
     const user = await auth.getUser();
     const id_user = user._id;
-    console.log(id_user);
+    //  / console.log(id_user);
     // const dataPayment = await Payment.findBy("id_user", id_user);
 
     const dataPayment = await Payment.all();
 
-    console.log(dataPayment);
+    // console.log(dataPayment);
     return view.render("app.my-history", {
       dataPayment: dataPayment.rows,
       id_user,

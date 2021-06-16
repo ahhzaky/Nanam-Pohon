@@ -4,7 +4,7 @@ const Campaign = use("App/Models/Campaign");
 const User = use("App/Models/User");
 const { v4: uuidv4 } = require("uuid");
 
-//const Helpers = use("Helpers");
+const Helpers = use("Helpers");
 
 class CampaignController {
   // view create-donasi
@@ -43,10 +43,10 @@ class CampaignController {
     campaign.goal_desc = data.goal_desc.split(",");
     campaign.price_goal = data.price_goal;
     campaign.price_now = 0;
-    campaign.campaignImageOne = "";
-    campaign.campaignImageTwo = "";
-    campaign.campaignImageThree = "";
-    campaign.campaignImageFour = "";
+    campaign.campaignImageOne = "campaign-none-image.png";
+    campaign.campaignImageTwo = "campaign-none-image.png";
+    campaign.campaignImageThree = "campaign-none-image.png";
+    campaign.campaignImageFour = "campaign-none-image.png";
     campaign.historyPayment = [];
     await campaign.save();
 
@@ -72,7 +72,7 @@ class CampaignController {
   // update-donasi view
   async updateDonasiView({ view, params }) {
     const id_campaign = params.id_campaign;
-    console.log("id_view: " + id_campaign);
+    //  console.log("id_view: " + id_campaign);
     const dataInfoCampaign = await Campaign.findBy("id_campaign", id_campaign);
     return view.render("app.update-donasi", { dataInfoCampaign });
   }
@@ -115,7 +115,7 @@ class CampaignController {
   //view update-image
   async uploadCampaignImageView({ view, params }) {
     const id_campaign = params.id_campaign;
-    console.log("id_campaign: " + id_campaign);
+    //  console.log("id_campaign: " + id_campaign);
     const dataInfoCampaign = await Campaign.findBy("id_campaign", id_campaign);
     return view.render("app.upload-campaign-image", { dataInfoCampaign });
   }

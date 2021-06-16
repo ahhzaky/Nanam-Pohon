@@ -27,14 +27,14 @@ class PaymentController {
     //date-now
     const now = new Date();
     const dateNow = date.format(now, "DD MMM YYYY");
-    console.log(dateNow);
+    // console.log(dateNow);
 
     // add money to campaign
     const dataCampaign = await Campaign.findBy("id_campaign", id_campaign);
     dataCampaign.price_now =
       parseInt(dataCampaign.price_now) + parseInt(data.price_donate);
     await dataCampaign.save();
-    console.log("Succcess ADD money to campaign" + dataCampaign.name_tree);
+    // console.log("Succcess ADD money to campaign" + dataCampaign.name_tree);
 
     //user add payDonation
     const dataUser = await User.findBy("_id", id_user);
@@ -53,7 +53,7 @@ class PaymentController {
     payment.image_history = dataCampaign.campaignImageOne;
     payment.price_donate = data.price_donate;
     await payment.save();
-    console.log("SUCCES PAYMENT");
+    //console.log("SUCCES PAYMENT");
 
     return response.redirect("/success-donation");
   }
