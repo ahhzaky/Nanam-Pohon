@@ -2,6 +2,7 @@
 const { validateAll } = use("Validator");
 const User = use("App/Models/User");
 const Payment = use("App/Models/Payment");
+const Campaign = use("App/Models/Campaign");
 
 class UserController {
   // register user
@@ -108,7 +109,9 @@ class UserController {
   async dashboard({ auth, view }) {
     // const user = await auth.getUser();
     // console.log(user._id);
-    return view.render("app.dashboard");
+    const campaign = await Campaign.all();
+
+    return view.render("app.dashboard", { campaign: campaign.rows });
   }
 
   async myHistoryView({ view, auth }) {
