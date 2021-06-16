@@ -15,5 +15,5 @@ database/*.sqlite
 .history
 .idea
 
-# tailwind
+# tailwind-css
 public/css/*.css
