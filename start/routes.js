@@ -18,29 +18,8 @@ const UserController = require("../app/Controllers/Http/UserController");
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use("Route");
 
-//debug
-// berhasil daftar
-Route.get("/register-success", "PageController.registerSuccess");
-
-//Route.get("/show-donasi", "PageController.showDonasi");
-
-//Route.get("/my-profile", "PageController.myProfile");
-
-//Route.get("/my-history", "PageController.myHistory");
-
+// none-uploade image user
 Route.get("/upload-image", "PageController.uploadImage");
-
-//Route.get("/success-register", "PageController.successRegister");
-
-//Route.get("/create-donasi", "PageController.createDonasi");
-
-// Route.get("/donasi-info", "PageController.donasiInfo");
-// Route.get("/edit-donasi", "PageController.editDonasi");
-
-//Route.post("/users", "UserController.store");
-
-// login Akun
-//Route.post("/login", "AuthController.login");
 
 //Daftar Akun
 Route.get("/register", "UserController.registerView");
