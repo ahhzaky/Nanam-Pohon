@@ -64,11 +64,8 @@ class CampaignController {
   // edit-donasi view data
   async editDonasi({ view, params }) {
     const id_campaign = params.id_campaign;
-
     const dataHistory = await Payment.all();
-    console.log("datahis: " + dataHistory);
     const dataInfoCampaign = await Campaign.findBy("id_campaign", id_campaign);
-    //console.log("dataCampaig: " + dataInfoCampaign.name_tree);
     return view.render("app.edit-donasi", {
       dataInfoCampaign,
       dataHistory: dataHistory.rows,
@@ -79,7 +76,6 @@ class CampaignController {
   // update-donasi view
   async updateDonasiView({ view, params }) {
     const id_campaign = params.id_campaign;
-    //  console.log("id_view: " + id_campaign);
     const dataInfoCampaign = await Campaign.findBy("id_campaign", id_campaign);
     return view.render("app.update-donasi", { dataInfoCampaign });
   }
