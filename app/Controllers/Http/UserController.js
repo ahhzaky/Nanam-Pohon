@@ -132,7 +132,7 @@ class UserController {
   // logout
   async destroy({ auth, response }) {
     await auth.logout();
-    return response.redirect("back");
+    return response.redirect("/", true);
   }
 }
 
