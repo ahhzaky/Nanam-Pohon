@@ -82,13 +82,16 @@ module.exports = {
   },
   mongodb: {
     client: "mongodb",
-    connectionString: Env.get("DB_CONNECTION_STRING", ""),
+    connectionString: Env.get(
+      "DB_CONNECTION_STRING",
+      "mongodb+srv://linux:linux123@cluster0.xudvziq.mongodb.net/test"
+    ),
     connection: {
-      host: Env.get("DB_HOST", "localhost"),
+      host: Env.get("DB_HOST", "cluster0.xudvziq.mongodb.net"),
       port: Env.get("DB_PORT", 27017),
-      username: Env.get("DB_USER", "admin"),
-      password: Env.get("DB_PASSWORD", ""),
-      database: Env.get("DB_DATABASE", "adonis"),
+      username: Env.get("DB_USER", "linux"),
+      password: Env.get("DB_PASSWORD", "linux123"),
+      database: Env.get("DB_DATABASE", "test"),
       options: {
         useUnifiedTopology: true,
         // replicaSet: Env.get('DB_REPLICA_SET', '')
