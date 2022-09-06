@@ -40,3 +40,7 @@ npm run css
 ### Demo
 
 ## <a href="https://secure-retreat-33583.herokuapp.com/">LIVE DEMO</a>
+
+### Description
+
+Projek mk ppl, Projek ini merupakan website dari frameworknodejs yaitu adonis4.0. Projek ini untuk mengumpulkan dana investasi yang mana nantinya dana tersebut digunakan oleh komunitas untuk melestarikan hutan yang ada.
